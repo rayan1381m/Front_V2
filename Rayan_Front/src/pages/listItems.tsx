@@ -6,6 +6,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleIcon from "@mui/icons-material/People";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LayersIcon from "@mui/icons-material/Layers";
+import { Link } from "react-router-dom";
 
 export const mainListItems = (
   <React.Fragment>
@@ -33,11 +34,11 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Add Game" />
     </ListItemButton>
-    <ListItemButton >
+    <ListItemButton component={Link} to="/admin/add">
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Add Admin" />
-    </ListItemButton >
+    </ListItemButton>
   </React.Fragment>
 );

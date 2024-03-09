@@ -161,9 +161,6 @@ export default function Dashboard() {
             overflow: "auto",
           }}
         >
-          <Box>
-            <AddAdminForm />
-          </Box>
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Copyright sx={{ pt: 4 }} />
