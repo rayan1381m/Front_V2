@@ -3,8 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -14,6 +12,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { useState } from "react";
+//import { useHistory } from "react-router-dom"; chera error darm?
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props: any) {
   return (
@@ -37,6 +37,8 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 export default function Signup() {
+  const navigate = useNavigate();
+  //const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -68,6 +70,7 @@ export default function Signup() {
       .request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

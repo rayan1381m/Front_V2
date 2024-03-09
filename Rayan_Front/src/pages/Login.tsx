@@ -14,11 +14,13 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -42,6 +44,11 @@ export default function Login() {
     axios.request(config)
     .then((response) => {
       console.log(JSON.stringify(response.data));
+      if (response.data.isAdmin) {
+        navigate("/admin");
+      } else {
+        navigate("/user");
+      }
     })
     .catch((error) => {
       console.log(error);
