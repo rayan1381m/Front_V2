@@ -26,7 +26,8 @@ export default function Login() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     let data = JSON.stringify({
-      "name": "Rayan"
+      "name": username,
+      "password": password
     });
     
     let config = {
@@ -124,7 +125,7 @@ export default function Login() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Login
               </Button>
               <Grid container>
                 <Grid item xs>
