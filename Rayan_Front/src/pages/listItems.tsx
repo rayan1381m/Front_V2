@@ -33,11 +33,11 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Add Game" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton >
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Add Admin" />
-    </ListItemButton>
+    </ListItemButton >
   </React.Fragment>
 );
