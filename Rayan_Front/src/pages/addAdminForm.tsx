@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 
-const AddAdminPage: React.FC = () => {
+const AddAdminForm: React.FC = () => {
   const [adminName, setAdminName] = useState("");
   const [adminPassword, setAdminPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -84,4 +84,4 @@ const AddAdminPage: React.FC = () => {
   );
 };
 
-export default AddAdminPage;
+export default AddAdminForm;

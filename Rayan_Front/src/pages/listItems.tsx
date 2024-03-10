@@ -28,13 +28,13 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Reports" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to = "/admin/add-game">
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Add Game" />
     </ListItemButton>
-    <ListItemButton component={Link} to="/admin/add">
+    <ListItemButton component={Link} to="/admin/add-admin">
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
