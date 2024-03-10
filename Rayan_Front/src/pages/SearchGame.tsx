@@ -16,8 +16,10 @@ const SearchGame: React.FC = () => {
     setError(null);
 
     try {
-      const response = await axios.get(`http://localhost:3000/games/name/${gameName}`);
-      
+      const response = await axios.get(
+        `http://localhost:3000/games/name/${gameName}`
+      );
+
       if (response.status === 200) {
         console.log(`Game with name ${gameName} found!`);
         setGameInfo(response.data); // Set the game information received from the backend
@@ -29,6 +31,11 @@ const SearchGame: React.FC = () => {
       setError(error.message);
     }
   };
+
+  const handleAddToInventory = async () => {
+
+  };
+  
 
   return (
     <Box sx={{ maxWidth: 400, mx: "auto", mt: 4 }}>
@@ -65,6 +72,16 @@ const SearchGame: React.FC = () => {
           <Typography>{`Name: ${gameInfo.name}`}</Typography>
           <Typography>{`Price: ${gameInfo.price}`}</Typography>
           <Typography>{`Description: ${gameInfo.comments}`}</Typography>
+          <Button
+            type="button"
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{ mt: 2 }}
+            onClick={() => handleAddToInventory()}
+          >
+            Add to Inventory
+          </Button>
         </Box>
       )}
     </Box>

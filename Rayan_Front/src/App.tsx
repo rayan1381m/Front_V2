@@ -10,6 +10,7 @@ import SearchGame from "./pages/SearchGame";
 import UserEditProfile from "./pages/userEditProfile";
 import ShowAllGames from "./pages/ShowListOfGames";
 import UserInventory from "./pages/UserInventory";
+import ShowListOfUsers from "./pages/DisplayAllUsers";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/user/edit-info" element={<UserEditProfile />} />
         <Route path="/admin/all-games-admin" element={<ShowAllGames />} />
         <Route path="/user/inventory" element={<UserInventory />} />
+        <Route path="/admin/allUsers" element={<ShowListOfUsers />} />
       </Routes>
     </>
   );

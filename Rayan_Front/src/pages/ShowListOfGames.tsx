@@ -24,7 +24,7 @@ const ShowListOfGames: React.FC = () => {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const response = await axios.get<Game[]>("http://localhost:3000/games"); // Update the URL with your backend endpoint
+        const response = await axios.get<Game[]>("http://localhost:3000/games");
         setGames(response.data);
       } catch (error) {
         console.error("Error fetching games:", error);
