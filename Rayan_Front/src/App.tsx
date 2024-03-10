@@ -4,9 +4,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Admin from "./pages/Admin";
 import User from "./pages/User";
-import AddAdminForm from "./pages/addAdminForm"; 
-import AddGameForm from "./pages/AddGameForm"; 
-
+import AddAdminForm from "./pages/addAdminForm";
+import AddGameForm from "./pages/AddGameForm";
+import SearchGame from "./pages/SearchGame";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
         <Route path="/user" element={<User />} />
         <Route path="/admin/add-admin" element={<AddAdminForm />} />
         <Route path="/admin/add-game" element={<AddGameForm />} />
+        <Route path="/user/search-game" element={<SearchGame />} />
       </Routes>
     </>
   );
