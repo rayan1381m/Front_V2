@@ -5,7 +5,7 @@ import axios from "axios";
 const UserEditProfile: React.FC = () => {
   const [userNewName, setUserNewName] = useState("");
   const [userNewPassword, setUserNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); // New state for confirmation password
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const handleNewUsernameChange = (
