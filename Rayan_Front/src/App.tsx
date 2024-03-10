@@ -7,6 +7,7 @@ import User from "./pages/User";
 import AddAdminForm from "./pages/addAdminForm";
 import AddGameForm from "./pages/AddGameForm";
 import SearchGame from "./pages/SearchGame";
+import UserEditProfile from "./pages/userEditProfile";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/admin/add-admin" element={<AddAdminForm />} />
         <Route path="/admin/add-game" element={<AddGameForm />} />
         <Route path="/user/search-game" element={<SearchGame />} />
+        <Route path="/user/edit-info" element={<UserEditProfile />} />
       </Routes>
     </>
   );

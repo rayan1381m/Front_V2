@@ -27,32 +27,35 @@ export default function Login() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     let data = JSON.stringify({
-      "name": username,
-      "password": password
+      name: username,
+      password: password,
     });
-    
+
     let config = {
-      method: 'post',
+      method: "post",
       maxBodyLength: Infinity,
-      url: 'http://localhost:3000/users/getuser',
-      headers: { 
-        'Content-Type': 'application/json'
+      url: "http://localhost:3000/users/getuser",
+      headers: {
+        "Content-Type": "application/json",
       },
-      data : data
+      data: data,
     };
-    
-    axios.request(config)
-    .then((response) => {
-      console.log(JSON.stringify(response.data));
-      if (response.data.isAdmin) {
-        navigate("/admin");
-      } else {
-        navigate("/user");
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+
+    axios
+      .request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+        if (response.data.isAdmin) {
+          localStorage.setItem("username", username);
+          navigate("/admin");
+        } else {
+          localStorage.setItem("username", username);
+          navigate("/user");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
