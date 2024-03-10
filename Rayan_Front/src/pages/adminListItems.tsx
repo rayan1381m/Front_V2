@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton component={Link} to = "/user/all-games-admin">
+    <ListItemButton component={Link} to = "/admin/all-games-admin">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>

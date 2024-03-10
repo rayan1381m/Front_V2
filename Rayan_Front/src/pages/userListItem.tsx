@@ -21,8 +21,8 @@ export const mainListItems = (
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Games and serach" />
-    </ListItemButton>
-    <ListItemButton>
+    </ListItemButton >
+    <ListItemButton component={Link} to = "/user/inventory">
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
