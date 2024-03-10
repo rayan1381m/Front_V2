@@ -29,40 +29,43 @@ const UserEditProfile: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError(null);
-
+   
     if (userNewPassword !== confirmPassword) {
-      setError("Passwordnot confirm");
-      return;
+       setError("Passwordnot match.");
+       return;
     }
-
+   
     try {
-      const username = localStorage.getItem("username");
-      if (!username) {
-        throw new Error("Username not found. Please log in again.");
-      }
-
-      const response = await axios.put(
-        `http://localhost:3000/users/${username}`,
-        {
-          name: userNewName,
-          password: userNewPassword,
-        }
-      );
-
-      if (response.status >= 200 && response.status < 300) {
-        console.log("Profile updated successfully!");
-        setUserNewName("");
-        setUserNewPassword("");
-        setConfirmPassword(""); // Clear the confirmation password field
-        // Optionally, update the local storage with the new username if it was changed
-        localStorage.setItem("username", userNewName);
-      } else {
-        throw new Error("Failed to update profile. Please try again.");
-      }
+       const username = localStorage.getItem("username");
+       if (!username) {
+         throw new Error("Username not found. Please log in again.");
+       }
+   
+       const response = await axios.put(
+         `http://localhost:3000/users/${username}`,
+         {
+           name: userNewName,
+           password: userNewPassword,
+         }
+       );
+   
+       if (response.status >= 200 && response.status < 300) {
+         console.log("Profile updated successfully!");
+         setUserNewName("");
+         setUserNewPassword("");
+         setConfirmPassword("");
+         localStorage.setItem("username", userNewName);
+       } else {
+         throw new Error("Failed to update profile or duplicate username. Please try again.");
+       }
     } catch (error: any) {
-      setError(error.message);
+       if (error.response && error.response.data && error.response.data.message) {
+         setError(error.response.data.message);
+       } else {
+         setError("An error occurred. Please try again.");
+       }
     }
-  };
+   };   
 
   return (
     <Box sx={{ maxWidth: 400, mx: "auto", mt: 4 }}>
