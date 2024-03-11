@@ -48,7 +48,7 @@ const ShowListOfUsers: React.FC = () => {
             <TableRow key={user.id}>
               <TableCell>{user.id}</TableCell>
               <TableCell>{user.name}</TableCell>
-              <TableCell>{user.is_admin}</TableCell>
+              <TableCell>{String(user.is_admin)}</TableCell>
               <TableCell>{user.password}</TableCell>
             </TableRow>
           ))}
