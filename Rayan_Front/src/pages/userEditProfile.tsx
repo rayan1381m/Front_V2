@@ -42,7 +42,7 @@ const UserEditProfile: React.FC = () => {
        }
    
        const response = await axios.put(
-         `http://localhost:3000/users/${username}`,
+         `http://localhost:3001/users/${username}`,
          {
            name: userNewName,
            password: userNewPassword,

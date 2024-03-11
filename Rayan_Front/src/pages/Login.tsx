@@ -34,7 +34,7 @@ export default function Login() {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "http://localhost:3000/users/getuser",
+      url: "http://localhost:3001/users/getuser",
       headers: {
         "Content-Type": "application/json",
       },

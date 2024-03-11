@@ -24,7 +24,7 @@ const UserInventory: React.FC = () => {
       try {
         const username = localStorage.getItem("username");
         if (username) {
-          const response = await axios.get<Game[]>(`http://localhost:3000/users/${username}/games`);
+          const response = await axios.get<Game[]>(`http://localhost:3001/users/${username}/games`);
           setGames(response.data);
         }
       } catch (error) {

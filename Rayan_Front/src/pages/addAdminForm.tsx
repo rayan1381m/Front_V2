@@ -24,7 +24,7 @@ const AddAdminForm: React.FC = () => {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:3000/users", {
+      const response = await axios.post("http://localhost:3001/users", {
         name: adminName,
         isAdmin: true,
         password: adminPassword,

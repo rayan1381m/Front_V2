@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
+//const BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
 
 const AddGamePage: React.FC = () => {
   const [gameName, setGameName] = useState("");
@@ -30,7 +31,9 @@ const AddGamePage: React.FC = () => {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:3000/games", {
+      //console.log(`BASE_URL: ${BASE_URL}`);
+      //const response = await axios.post(`${BASE_URL}/games`, {
+      const response = await axios.post(`http://localhost:3001/games`, {
         name: gameName,
         likes: 0,
         comments: gameDescription,

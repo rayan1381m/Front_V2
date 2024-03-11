@@ -17,12 +17,12 @@ const SearchGame: React.FC = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/games/name/${gameName}`
+        `http://localhost:3001/games/name/${gameName}`
       );
 
       if (response.status === 200) {
         console.log(`Game with name ${gameName} found!`);
-        setGameInfo(response.data); // Set the game information received from the backend
+        setGameInfo(response.data);
         setGameName("");
       } else {
         throw new Error("Failed to Find. Please try again.");

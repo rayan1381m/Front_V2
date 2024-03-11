@@ -59,7 +59,7 @@ export default function Signup() {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "http://localhost:3000/users",
+      url: "http://localhost:3001/users",
       headers: {
         "Content-Type": "application/json",
       },
