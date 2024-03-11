@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
@@ -16,27 +16,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { mainListItems } from "./userListItem";
-
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import ShowListOfGames from "./ShowListOfGames"; 
 
 const drawerWidth: number = 240;
-
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
@@ -89,7 +71,16 @@ const Drawer = styled(MuiDrawer, {
 const defaultTheme = createTheme();
 
 export default function User() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    const storedName = localStorage.getItem("username");
+    if (storedName) {
+      setName(storedName);
+    }
+  }, []);
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -123,7 +114,7 @@ export default function User() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              Dashboard {name}
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -165,7 +156,15 @@ export default function User() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Copyright sx={{ pt: 4 }} />
+            <ShowListOfGames />
+            <Typography variant="body2" color="text.secondary" align="center">
+              Copyright ©{" "}
+              <Link color="inherit" href="https://mui.com/">
+                Your Website
+              </Link>{" "}
+              {new Date().getFullYear()}
+              {"."}
+            </Typography>
           </Container>
         </Box>
       </Box>

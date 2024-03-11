@@ -52,7 +52,7 @@ const ShowListOfGames: React.FC = () => {
               <TableCell>{game.name}</TableCell>
               <TableCell>{game.likes}</TableCell>
               <TableCell>{game.comments}</TableCell>
-              <TableCell>{game.price}</TableCell>
+              <TableCell>{game.price} $</TableCell>
             </TableRow>
           ))}
         </TableBody>
